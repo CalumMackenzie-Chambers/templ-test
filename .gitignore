@@ -1,0 +1,39 @@
+# Ignore the tmp folder
+/tmp/
+
+# Logs folder: ignore everything but the "keep" file
+/logs/*
+!/logs/.keep
+
+# Standard Go .gitignore
+*.o
+*.a
+*.so
+*.exe
+*.test
+*.prof
+*.out
+*.[568vq]
+*.cgo1.go
+*.cgo2.c
+_cgo_defun.c
+_cgo_gotypes.go
+_cgo_export.*
+
+*.exe~
+*.test~
+*.out~
+
+# IDE and editor files
+.idea/
+*.swp
+*.swo
+*.bak
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Binary builds
+/bin/
+
