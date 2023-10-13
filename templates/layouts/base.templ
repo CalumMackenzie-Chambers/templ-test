@@ -1,0 +1,14 @@
+package layouts;
+
+import "github.com/CalumMackenzie-Chambers/templ-test/templates/components"
+
+
+templ BaseLayout() {
+	<html>
+		@Head("Hello")
+		<body>
+			@components.Hello("calum")
+		</body>
+	</html>
+}
+
