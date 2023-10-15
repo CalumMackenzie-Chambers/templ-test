@@ -24,7 +24,7 @@ func BaseLayout() templ.Component {
 			var_1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, err = templBuffer.WriteString("<html>")
+		_, err = templBuffer.WriteString("<!doctype html><html lang=\"en\">")
 		if err != nil {
 			return err
 		}

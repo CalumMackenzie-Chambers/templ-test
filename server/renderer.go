@@ -35,4 +35,3 @@ func (t *TemplRender) Instance(name string, data interface{}) render.Render {
 	}
 	return nil
 }
-

@@ -22,7 +22,7 @@ func Hello(name string) templ.Component {
 			var_1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, err = templBuffer.WriteString("<div class=\"bg-blue-200\">")
+		_, err = templBuffer.WriteString("<div class=\"bg-blue-400\">")
 		if err != nil {
 			return err
 		}

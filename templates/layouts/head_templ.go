@@ -9,6 +9,8 @@ import "context"
 import "io"
 import "bytes"
 
+import "os"
+
 func Head(title string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, w io.Writer) (err error) {
 		templBuffer, templIsBuffer := w.(*bytes.Buffer)
@@ -31,7 +33,26 @@ func Head(title string) templ.Component {
 		if err != nil {
 			return err
 		}
-		_, err = templBuffer.WriteString("</title><link rel=\"stylesheet\" href=\"/static/css/min/main.css\"></head>")
+		_, err = templBuffer.WriteString("</title><link rel=\"stylesheet\" href=\"/static/css/min/main.css?ver=2\">")
+		if err != nil {
+			return err
+		}
+		if os.Getenv("GOENV") == "development" {
+			_, err = templBuffer.WriteString("<script src=\"/static/js/browser-refresh.js?ver=2\">")
+			if err != nil {
+				return err
+			}
+			var_3 := ``
+			_, err = templBuffer.WriteString(var_3)
+			if err != nil {
+				return err
+			}
+			_, err = templBuffer.WriteString("</script>")
+			if err != nil {
+				return err
+			}
+		}
+		_, err = templBuffer.WriteString("</head>")
 		if err != nil {
 			return err
 		}
