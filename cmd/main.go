@@ -29,7 +29,7 @@ func main() {
 	}
 
 	r.HTMLRender = &server.TemplRender{}
-	r.Static("/static", "./static")
+	r.Static("/static", "./static/public")
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index", layouts.BaseLayout())

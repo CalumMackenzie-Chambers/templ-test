@@ -33,7 +33,7 @@ func Head(title string) templ.Component {
 		if err != nil {
 			return err
 		}
-		_, err = templBuffer.WriteString("</title><link rel=\"stylesheet\" href=\"/static/css/min/main.css?ver=2\">")
+		_, err = templBuffer.WriteString("</title><link rel=\"stylesheet\" href=\"/static/css/main.css?ver=4\">")
 		if err != nil {
 			return err
 		}

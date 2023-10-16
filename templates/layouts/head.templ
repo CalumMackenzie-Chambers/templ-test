@@ -6,7 +6,7 @@ templ Head(title string) {
 	<head>
 		<meta charset="utf-8"/>
 		<title>{ title }</title>
-		<link rel="stylesheet" href="/static/css/min/main.css?ver=2"/>
+		<link rel="stylesheet" href="/static/css/main.css?ver=4"/>
 		if os.Getenv("GOENV") == "development" {
 			<script src="/static/js/browser-refresh.js?ver=2"></script>
 		}
