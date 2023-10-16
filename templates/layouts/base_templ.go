@@ -28,7 +28,7 @@ func BaseLayout() templ.Component {
 		if err != nil {
 			return err
 		}
-		err = Head("Hello").Render(ctx, templBuffer)
+		err = Head("Templ Test", "This is me testing templ. This should be the meta description").Render(ctx, templBuffer)
 		if err != nil {
 			return err
 		}

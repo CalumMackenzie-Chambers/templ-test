@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hx-indicator {opacity:0; transition: opacity 200ms ease-in;}
+.hx-requesting .hx-indicator {opacity:1}
+.hx-requesting.hx-indicator {opacity:1}

@@ -11,7 +11,7 @@ import "bytes"
 
 import "os"
 
-func Head(title string) templ.Component {
+func Head(title string, description string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, w io.Writer) (err error) {
 		templBuffer, templIsBuffer := w.(*bytes.Buffer)
 		if !templIsBuffer {
@@ -24,7 +24,15 @@ func Head(title string) templ.Component {
 			var_1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, err = templBuffer.WriteString("<head><meta charset=\"utf-8\"><title>")
+		_, err = templBuffer.WriteString("<head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta http-equiv=\"Content-Security-Policy\" content=\"default-src &#39;self&#39;;\"><meta name=\"description\" content=\"")
+		if err != nil {
+			return err
+		}
+		_, err = templBuffer.WriteString(templ.EscapeString(description))
+		if err != nil {
+			return err
+		}
+		_, err = templBuffer.WriteString("\"><title>")
 		if err != nil {
 			return err
 		}
@@ -33,17 +41,26 @@ func Head(title string) templ.Component {
 		if err != nil {
 			return err
 		}
-		_, err = templBuffer.WriteString("</title><link rel=\"stylesheet\" href=\"/static/css/main.css?ver=4\">")
+		_, err = templBuffer.WriteString("</title><link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/static/apple-touch-icon.png\"><link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/static/favicon-32x32.png\"><link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/static/favicon-16x16.png\"><link rel=\"manifest\" href=\"/static/site.webmanifest\"><link rel=\"stylesheet\" href=\"/static/css/main.css?ver=4\"><script src=\"/vendor/htmx.min.js?ver=1.9.6\">")
+		if err != nil {
+			return err
+		}
+		var_3 := ``
+		_, err = templBuffer.WriteString(var_3)
+		if err != nil {
+			return err
+		}
+		_, err = templBuffer.WriteString("</script>")
 		if err != nil {
 			return err
 		}
 		if os.Getenv("GOENV") == "development" {
-			_, err = templBuffer.WriteString("<script src=\"/static/js/browser-refresh.js?ver=2\">")
+			_, err = templBuffer.WriteString("<script src=\"/static/js/browser-refresh.js?ver=3\" defer>")
 			if err != nil {
 				return err
 			}
-			var_3 := ``
-			_, err = templBuffer.WriteString(var_3)
+			var_4 := ``
+			_, err = templBuffer.WriteString(var_4)
 			if err != nil {
 				return err
 			}
